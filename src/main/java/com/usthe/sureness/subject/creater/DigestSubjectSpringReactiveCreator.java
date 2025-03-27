@@ -78,7 +78,7 @@ public class DigestSubjectSpringReactiveCreator implements SubjectCreate {
                 }
 
                 String requestUri = ((ServerHttpRequest) context).getPath().value();
-                String requestType = ((ServerHttpRequest) context).getMethodValue();
+                String requestType = ((ServerHttpRequest) context).getMethod().name();
                 String targetUri = requestUri.concat("===").concat(requestType).toLowerCase();
                 return DigestSubject.builder(username, response)
                         .setRealm(realm).setUri(uri).setNonce(nonce)

@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.usthe.sureness</groupId>
     <artifactId>sureness-core</artifactId>
-    <version>1.0.8</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
-    <name>sureness-core</name>
+    <name>sureness</name>
     <inceptionYear>2019</inceptionYear>
     <url>https://github.com/dromara/sureness</url>
     <description>
@@ -40,7 +40,7 @@
             scm:git:https://github.com/dromara/sureness.git
         </developerConnection>
         <url>https://github.com/dromara/sureness</url>
-        <tag>1.0.8</tag>
+        <tag>1.2.0</tag>
     </scm>
 
     <properties>
@@ -48,14 +48,15 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
-        <jakarta.ws.rs.version>3.1.0</jakarta.ws.rs.version>
-        <jjwt.version>0.11.2</jjwt.version>
-        <yaml.version>1.29</yaml.version>
-        <xml.bind.version>4.0.0</xml.bind.version>
-        <slf4j.version>1.7.21</slf4j.version>
+        <jakarta.servlet.version>6.1.0</jakarta.servlet.version>
+        <jakarta.ws.rs.version>4.0.0</jakarta.ws.rs.version>
+        <jjwt.version>0.12.6</jjwt.version>
+        <yaml.version>2.4</yaml.version>
+        <slf4j.version>2.0.17</slf4j.version>
+        <xml.bind.version>4.0.2</xml.bind.version>
         <junit.version>5.7.0</junit.version>
         <easymock.version>4.0.2</easymock.version>
+        <spring.version>6.2.5</spring.version>
     </properties>
     <dependencies>
         <dependency>
@@ -73,7 +74,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>6.0.4</version>
+            <version>${spring.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -138,6 +139,14 @@
 
     <repositories>
         <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -157,7 +166,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>3.3.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -192,7 +201,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.2.7</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -214,7 +223,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>1.7.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>tom</serverId>

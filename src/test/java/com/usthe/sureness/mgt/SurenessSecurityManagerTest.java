@@ -93,7 +93,7 @@ class SurenessSecurityManagerTest {
         AtomicReference<SubjectSum> subjectSum = new AtomicReference<>();
         assertDoesNotThrow(() -> subjectSum.set(securityManager.checkIn(request)));
         assertNotNull(subjectSum.get());
-        assertEquals("tom", subjectSum.get().getPrincipal());
+        assertEquals("tom", subjectSum.get().getPrincipalMap().get("subject"));
         assertTrue(subjectSum.get().hasAllRoles(Arrays.asList("role2","role3")));
         assertEquals("/api/v1/source1===get", subjectSum.get().getTargetResource());
         verify(request);

@@ -169,12 +169,12 @@ public class DigestSubject implements Subject {
         return remoteHost;
     }
 
-    public static DigestSubject.Builder builder(String username, String response) {
-        return new DigestSubject.Builder(username, response);
+    public static Builder builder(String username, String response) {
+        return new Builder(username, response);
     }
 
-    public static DigestSubject.Builder builder(Subject subject) {
-        return new DigestSubject.Builder(subject);
+    public static Builder builder(Subject subject) {
+        return new Builder(subject);
     }
 
     public static class Builder {
@@ -209,72 +209,72 @@ public class DigestSubject implements Subject {
             this.principalMap = subject.getPrincipalMap();
         }
 
-        public DigestSubject.Builder setAppId(String appId) {
+        public Builder setAppId(String appId) {
             this.appId = appId;
             return this;
         }
 
-        public DigestSubject.Builder setResponse(String response) {
+        public Builder setResponse(String response) {
             this.response = response;
             return this;
         }
 
-        public DigestSubject.Builder setRealm(String realm) {
+        public Builder setRealm(String realm) {
             this.realm = realm;
             return this;
         }
 
-        public DigestSubject.Builder setUri(String uri) {
+        public Builder setUri(String uri) {
             this.uri = uri;
             return this;
         }
 
-        public DigestSubject.Builder setQop(String qop) {
+        public Builder setQop(String qop) {
             this.qop = qop;
             return this;
         }
 
-        public DigestSubject.Builder setNonce(String nonce) {
+        public Builder setNonce(String nonce) {
             this.nonce = nonce;
             return this;
         }
 
-        public DigestSubject.Builder setNc(String nc) {
+        public Builder setNc(String nc) {
             this.nc = nc;
             return this;
         }
 
-        public DigestSubject.Builder setCnonce(String cnonce) {
+        public Builder setCnonce(String cnonce) {
             this.cnonce = cnonce;
             return this;
         }
 
-        public DigestSubject.Builder setHttpMethod(String httpMethod) {
+        public Builder setHttpMethod(String httpMethod) {
             this.httpMethod = httpMethod;
             return this;
         }
 
-        public DigestSubject.Builder setTargetUri(String targetUri) {
+        public Builder setTargetUri(String targetUri) {
             this.targetUri = targetUri;
             return this;
         }
 
-        public DigestSubject.Builder setRemoteHost(String remoteHost) {
+        public Builder setRemoteHost(String remoteHost) {
             this.remoteHost = remoteHost;
             return this;
         }
 
-        public DigestSubject.Builder setOwnRoles(List<String> ownRoles) {
+        public Builder setOwnRoles(List<String> ownRoles) {
             this.ownRoles = ownRoles;
             return this;
         }
 
-        public DigestSubject.Builder setSupportRoles(List<String> supportRoles) {
+        public Builder setSupportRoles(List<String> supportRoles) {
             this.supportRoles = supportRoles;
             return this;
         }
 
-        public DigestSubject.Builder setPrincipalMap(PrincipalMap principalMap) {
+        public Builder setPrincipalMap(PrincipalMap principalMap) {
             this.principalMap = principalMap;
             return this;
         }

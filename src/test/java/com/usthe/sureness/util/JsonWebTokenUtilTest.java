@@ -67,8 +67,8 @@ public class JsonWebTokenUtilTest {
                 null, Boolean.FALSE);
         Claims claims = JsonWebTokenUtil.parseJwt(jwt);
         assertNotNull(claims);
-        assertEquals("tom", claims.getSubject());
-        assertEquals("token-server", claims.getIssuer());
+        assertEquals("tom", claims.get("subject") );
+        assertEquals("token-server", claims.get("issuer") );
         assertNotNull(claims.get("roles", List.class));
         assertNull(claims.get("perms", List.class));
         assertFalse(claims.get("isRefresh", Boolean.class));
@@ -82,8 +82,8 @@ public class JsonWebTokenUtilTest {
                 "token-server", 36000L, null, null, null, null, customClaimMap);
         Claims claims2 = JsonWebTokenUtil.parseJwt(jwt2);
         assertNotNull(claims2);
-        assertEquals("tom", claims2.getSubject());
-        assertEquals("token-server", claims2.getIssuer());
+        assertEquals("tom", claims2.get("subject"));
+        assertEquals("token-server", claims2.get("issuer"));
         assertNotNull(claims2.get("roles", List.class));
         assertNull(claims2.get("perms", List.class));
         assertTrue(claims2.get("isRefresh", Boolean.class));
